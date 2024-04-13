@@ -11,6 +11,9 @@ import com.prix.homepage.user.service.DatabaseService;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * Database객체와 관련된 서비스
+ */
 @AllArgsConstructor
 @Service
 public class DatabaseServiceImpl implements DatabaseService{
@@ -18,6 +21,9 @@ public class DatabaseServiceImpl implements DatabaseService{
   
   private final DatabaseMapper databaseMapper;
 
+  /**
+   * db에서 px_database 테이블의 데이터를 모두 가져옴
+   */
   @Override
   public List<Database> getAllDatabase() {
     List<Database> databases = databaseMapper.findAll();

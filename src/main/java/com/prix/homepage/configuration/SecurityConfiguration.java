@@ -7,48 +7,31 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+/**
+ * 비밀번호 암호화용 security 설정, 필요 없을 수도?
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
 
+	// 기본 설정
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
-				.cors(cors -> cors.configurationSource(corsConfigurationSource()))
 				.authorizeHttpRequests((requests) -> requests
-						// .requestMatchers("/admin/configuration").authenticated()
-						.anyRequest().permitAll()
-				)
+						.anyRequest().permitAll())
 				.formLogin((form) -> form
-						// .loginPage("/admin/login")
-						// .permitAll())
 						.disable())
 				.logout((logout) -> logout.permitAll());
 
 		return http.build();
 	}
 
+	// password encoding 용 brypt password encoder
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
-	}
-
-	@Bean
-	public CorsConfigurationSource corsConfigurationSource() {
-		CorsConfiguration configuration = new CorsConfiguration();
-
-		configuration.addAllowedOriginPattern("*");
-		configuration.addAllowedHeader("*");
-		configuration.addAllowedMethod("*");
-		configuration.setAllowCredentials(true);
-
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", configuration);
-		return source;
 	}
 
 }

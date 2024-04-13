@@ -21,6 +21,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 
+/**
+ * prix.hanyang.ac.kr/admin/configuration 페이지
+ * admin이 admin 접속시 보여주는 페이지
+ */
 @Controller
 @AllArgsConstructor
 public class ConfigurationController {
@@ -32,6 +36,12 @@ public class ConfigurationController {
     private final SoftwareMsgService softwareMsgService;
 
 
+    /**
+     * prix.hanyang.ac.kr/admin/configuration으로의 get request 매핑
+     * 
+     * @param model 뷰에 전달
+     * @param request 세션 접근 용도
+     */
     @GetMapping("/admin/configuration")
     public String gotoConfigurationPage(Model model, HttpServletRequest request) {
         // 세션에서 id, level 받고 admin 체크

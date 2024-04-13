@@ -20,6 +20,10 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
+/**
+ * prix.hanyang.ac.kr/login 페이지
+ * 헤더에서 로그인 클릭시 이동
+ */
 @Controller
 @AllArgsConstructor
 public class LoginController {
@@ -27,6 +31,13 @@ public class LoginController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final AccountService accountService;
 
+    /**
+     * prix.hanyang.ac.kr/login으로의 get request 매핑
+     * 
+     * @param model     뷰로 보낼 dummy account
+     * @param paramsMap prix.hanyang.ac.kr/login?action=param, 로그아웃 용도
+     * @param request   세션 접근 용도
+     */
     @GetMapping("/login")
     public String gotoLoginPage(Model model, @RequestParam(required = false) Map<String, String> paramsMap,
             HttpServletRequest request) {
@@ -50,14 +61,22 @@ public class LoginController {
         return "login/login";
     }
 
+    /**
+     * prix.hanyang.ac.kr/login에서 로그인 시도 post request 매핑
+     * 
+     * @param model      로그인 실패시 뷰에 보낼 dummy account와 에러 메시지 전달 용도
+     * @param accountDto 입력받은 account 객체
+     * @param result     account의 validation 검사 결과
+     * @param request    세션 접근 용도
+     */
     @PostMapping("/login")
     public String login(Model model, @Valid Account accountDto, BindingResult result,
             HttpServletRequest request) {
 
         if (result.hasErrors()) {
-            logger.warn("유효성 검사에서 탈락");
+            logger.warn("failed in validation");
             for (ObjectError error : result.getAllErrors()) {
-                logger.warn("유효성 실패 원인: " + error.getDefaultMessage());
+                logger.warn("reasons for validation failure: " + error.getDefaultMessage());
             }
             model.addAttribute("accountDto", accountDto);
             return "login/login";
@@ -66,7 +85,7 @@ public class LoginController {
                 accountDto.getPassword());
 
         if (account == null) {
-            logger.warn("존재하지 않는 계정");
+            logger.warn("account does not exist");
             model.addAttribute("accountDto", accountDto);
             return "login/login";
         }
@@ -76,8 +95,9 @@ public class LoginController {
         session.setAttribute("level", account.getLevel());
 
         // 세션에 등록된 id를 로그에 출력
-        logger.info("세션에 등록된 id: " + session.getAttribute("id"));
+        logger.info("ID registered in session:" + session.getAttribute("id"));
 
+        // 로그인 성공시 초기 페이지로 이동
         return "redirect:/";
     }
 

@@ -11,12 +11,18 @@ import com.prix.homepage.user.service.SoftwareLogService;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * SoftwareLog 객체와 관련된 서비스
+ */
 @AllArgsConstructor
 @Service
 public class SoftwareLogServiceImpl implements SoftwareLogService{
 
   private final SoftwareLogMapper softwareLogMapper;
 
+  /**
+   * db에서 px_software_log 테이블의 모든 데이터를 가져옴
+   */
   @Override
   public List<SoftwareLog> getAllSoftwareLog() {
     List<SoftwareLog> listSoftwareLogs = softwareLogMapper.findAll();

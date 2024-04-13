@@ -11,12 +11,18 @@ import com.prix.homepage.user.service.EnzymeService;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * Enzyme 객체와 관련된 서비스
+ */
 @AllArgsConstructor
 @Service
 public class EnzymeServiceImpl implements EnzymeService{
   
   private final EnzymeMapper enzymeMapper;
 
+  /**
+   * db에서 userId가 일치하는 px_enzyme 테이블 상의 데이터를 모두 가져옴
+   */
   @Override
   public List<Enzyme> getAllEnzymeByUserId(Integer userId) {
     List<Enzyme> listEnzymes =  enzymeMapper.findByUserId(userId);
