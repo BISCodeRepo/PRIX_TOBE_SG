@@ -14,7 +14,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class Mailer {
-   private static String owner = "Lee Soeul";
+   private static String owner = "Eunok Paek";
    private static String owner_site = "PRIX";
    private static String owner_email = "prix@hanyang.ac.kr";
    private static String cc_email = "prix@hanyang.ac.kr";
