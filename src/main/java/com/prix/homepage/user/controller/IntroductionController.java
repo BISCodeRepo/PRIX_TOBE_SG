@@ -9,30 +9,37 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class IntroductionController {
-  
+
   @GetMapping("/")
   public String gotoIntroductionPage() {
-      return "index";
+    return "index";
   }
 
-    /**
-     * header에서 help 클릭시
-     * 
-     * @return help.html 렌더링
-     */
+  /**
+   * header에서 help 클릭시
+   * 
+   * @return help.html 렌더링
+   */
   @GetMapping("/help")
   public String gotoHelpPage() {
-      return "support/help";
+    return "support/help";
   }
 
-    /**
-     * header에서 contact 클릭시
-     * 
-     * @return contact.html 렌더링
-     */
+  /**
+   * header에서 contact 클릭시
+   * 
+   * @return contact.html 렌더링
+   */
   @GetMapping("/contact")
   public String gotoContactPage() {
-      return "support/contact";
+    return "support/contact";
   }
-  
+
+  /**
+   * footer에서 policy 클릭시
+   */
+  @GetMapping("/policy")
+  public String gotoPolicyPage() {
+    return "support/policy";
+  }
 }
