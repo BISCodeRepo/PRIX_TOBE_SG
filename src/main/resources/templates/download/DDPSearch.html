@@ -51,9 +51,7 @@
                 <tr th:if="${session.id != null and session.id ne '4'}">
                   <td>
                     <img src="/images/top_icon_01.gif" width="2" height="9" />
-                    &nbsp;<a href="/history" class="menu"
-                      >History</a
-                    >
+                    &nbsp;<a href="/history" class="menu">History</a>
                     &nbsp; &nbsp;
                   </td>
                   <td>
@@ -116,8 +114,10 @@
                 <br />
                 -
                 <font class="blue"
-                  ><a href="release_note_ddp.txt" class="under" />Jul 26, 2018:
-                  version 1.00</font
+                  ><a
+                    th:href="@{/files/ddp_ReleaseNote.txt}"
+                    class="under"
+                  />Jul 26, 2018: version 1.00</font
                 >
                 (
                 <a href="/software_request?software=DDPSearch" class="under"

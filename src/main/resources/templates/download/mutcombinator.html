@@ -51,9 +51,7 @@
                 <tr th:if="${session.id != null and session.id ne '4'}">
                   <td>
                     <img src="/images/top_icon_01.gif" width="2" height="9" />
-                    &nbsp;<a href="/history" class="menu"
-                      >History</a
-                    >
+                    &nbsp;<a href="/history" class="menu">History</a>
                     &nbsp; &nbsp;
                   </td>
                   <td>
@@ -113,8 +111,10 @@
                 <br />
                 -
                 <font class="blue"
-                  ><a href="MutCombinator_ReleaseNote.txt" class="under" />Mar
-                  26, 2020: version 1.11</font
+                  ><a
+                    th:href="@{/files/MutCombinator_ReleaseNote.txt}"
+                    class="under"
+                  />Mar 26, 2020: version 1.11</font
                 >
                 (
                 <a href="/software_request?software=MutCombinator" class="under"
