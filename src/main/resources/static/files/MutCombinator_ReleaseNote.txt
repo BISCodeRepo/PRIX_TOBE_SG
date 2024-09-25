@@ -1,0 +1,13 @@
+/****************************************************************/
+
+MutCombinator v1.11 : Conbiantorial mutation search
+Release: Mar 26, 2020
+Hanyang University, Seoul, Korea
+
+/****************************************************************/
+
+##ver1.11
+ - Reduced memory use in indexing variant graph.
+
+##ver1.10
+ - Initial Release ^^.
