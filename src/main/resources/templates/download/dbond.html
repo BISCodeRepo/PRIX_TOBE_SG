@@ -1,165 +1,57 @@
 <!DOCTYPE html>
 <!-- layout의 content로 table 을, links에는 link들을, scripts에는 script들을 넘긴다. 필요 없을 경우 ~{} empty fragment-->
-<html
-  th:replace="~{inc/layout::layout(~{::table}, ~{::link}, ~{::script})}"
-  xmlns:th="http://www.thymeleaf.org"
->
+<html th:replace="~{inc/layout::layout(~{::table}, ~{::link}, ~{::script})}" xmlns:th="http://www.thymeleaf.org">
+
   <!-- 페이지 개별 css를 어떻게 추가하는지 예시 -->
-  <link
-    href="/css/example.css"
-    th:href="@{/css/example.css}"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <link
-    href="/css/example2.css"
-    th:href="@{/css/example2.css}"
-    rel="stylesheet"
-    type="text/css"
-  />
+  <link href="/css/example.css" th:href="@{/css/example.css}" rel="stylesheet" type="text/css" />
+  <link href="/css/example2.css" th:href="@{/css/example2.css}" rel="stylesheet" type="text/css" />
 
   <!-- 페이지 개별 javascript 등 기타 script를 추가하는 예시 -->
   <script>
-    let a = 12;
+    let a = 12;  
   </script>
   <script>
     let b = "hi";
-  </script>
+  </script> 
 
   <table width="1090" border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td
-        width="190"
-        height="100%"
-        rowspan="2"
-        align="right"
-        valign="top"
-        style="padding-right: 15px"
-      >
-        <!-- left menu -->
-        <div th:insert="~{download/download_menu :: download_menu}" />
-      </td>
+      <td width="190" height="100%" rowspan="2" align="right" valign="top" style="padding-right:15px">
+          <!-- left menu -->
+          <div th:insert="~{download/download_menu :: download_menu}" />
+        </td>
       <td height="10" valign="top">
-        <table border="0" cellspacing="0" cellpadding="0" id="TitTable">
-          <tr>
-            <td align="left">
-              <font class="drakBR" size="3">DBond</font> - Identification of
-              intact disulfide linkages
-            </td>
-            <td align="right" valign="bottom" style="padding-right: 5px">
-              <table border="0" cellspacing="0" cellpadding="0">
+      
+          <table border="0" cellspacing="0" cellpadding="0" id="TitTable">
+            <tr>
+              <td align="left"><font class="drakBR" size="3">DBond</font> - Identification of intact disulfide linkages (<a href="https://github.com/HanyangBISLab/DBond" style="color:#990000">Software downlaod</a>) </td>
+              <td align="right" valign="bottom" style="padding-right:5px;"><table border="0" cellspacing="0" cellpadding="0">
+
                 <tr th:if="${session.id != null and session.id ne '4'}">
-                  <td>
-                    <img src="/images/top_icon_01.gif" width="2" height="9" />
-                    &nbsp;<a href="/history" class="menu">History</a>
-                    &nbsp; &nbsp;
-                  </td>
-                  <td>
-                    <img src="/images/top_icon_01.gif" width="2" height="9" />
-                    &nbsp;<a href="/login?action=logout" class="menu">Logout</a>
-                    &nbsp; &nbsp;
-                  </td>
+                    <td><img src="/images/top_icon_01.gif" width="2" height="9"> &nbsp;<a href="/history" class="menu">History</a> &nbsp; &nbsp;</td>
+                    <td><img src="/images/top_icon_01.gif" width="2" height="9"> &nbsp;<a href="/login?action=logout" class="menu">Logout</a> &nbsp; &nbsp;</td>
                 </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        <table width="650" border="0" align="left" cellpadding="1">
-          <tr>
-            <td width="600" align="left">
-              DBond assigns disulfide bond sites in a protein via analysis of
-              MS/MS spectra of disulfide linked peptides from protein digestion
-              under non-reducing condition. A disulfide linked peptide produces
-              multiple fragment ions from two peptides, and therefore, its MS/MS
-              spectrum shows complex patterns and includes many overlapping
-              fragment ions. DBond was designed to recognize diagnostic fragment
-              ions resultant specifically from disulfide linkages.
-            </td>
-          </tr>
-          <tr>
-            <td align="left">&nbsp;</td>
-          </tr>
 
-          <tr>
-            <td class="grayTD" align="left">
-              <img src="/images/p_st1.GIF" width="4" height="9" /><font
-                class="drakBR"
-              >
-                Software</font
-              ><br />
-            </td>
-          </tr>
-          <tr>
-            <td align="left">
-              <ul>
-                <li>Requirement</li>
-                <br /><font class="blue">
-                  DBond was implemented using JAVA programming language, and
-                  requires Java Running Environment (JRE).<br />
-                  If JRE is not installed, please visit
-                  <a
-                    href="http://www.oracle.com/technetwork/java/index.html"
-                    target="_blank"
-                    class="under"
-                    >http://www.oracle.com/technetwork/java/index.html</a
-                  ><br /><br
-                /></font>
+          </table></td>
+        </tr>
+      </table>
+      <table width="650" border="0" align="left" cellpadding="1">
+              <tr>
+                <td width="600" align="left">DBond assigns disulfide bond sites in a protein via analysis of MS/MS spectra of disulfide linked peptides from protein digestion under non-reducing condition. A disulfide linked peptide produces multiple fragment ions from two peptides, and therefore, its MS/MS spectrum shows complex patterns and includes many overlapping fragment ions. DBond was designed to recognize diagnostic fragment ions resultant specifically from disulfide linkages.</td>
+              </tr>
+              <tr>
+                <td align="left">&nbsp;</td>
+              </tr>
 
-                <li>Release Note</li>
-                <br />
-                -
-                <font class="blue">Oct 01, 2012: version 3.02</font>
-                (
-                <a href="/software_request?software=DBond" class="under"
-                  >Software download</a
-                >
-                )<br />
-                - Jan 01, 2012: version 3.01
-                <br /><br />
-
-                <li>
-                  Spectral Viewer (
-                  <a href="/files/DBond Viewer v3.01.zip" class="under">
-                    download </a
-                  >)
-                </li>
-                <br />
-                To help users inspect MS/MS spectra manually, a spectral viewer
-                is provided. The input XML file to a viewer is generated from
-                DBond search. (*.bond.xml)<br />
-              </ul>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="grayTD" align="left">
-              <img src="/images/p_st1.GIF" width="4" height="9" /><font
-                class="drakBR"
-              >
-                Publication</font
-              ><br />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              &nbsp;&nbsp;&nbsp;<font class="drakBR"
-                >New algorithm for the identification of intact disulfide
-                linkages based on fragmentation characteristics<br />&nbsp;&nbsp;&nbsp;in
-                tandem mass spectra.</font
-              ><br />&nbsp;&nbsp;&nbsp;<em
-                >Seonhwa Choi, Jaeho Jeong, Seungjin Na, Hyo Sun Lee, Hwa-Young
-                Kim, Kong-Joo Lee, and Eunok Paek.</em
-              ><br />&nbsp;&nbsp;&nbsp;Journal of Proteome Research, 2010, 9,
-              626-635.
-              <a
-                href="http://www.ncbi.nlm.nih.gov/pubmed/19902913"
-                target="_blank"
-                class="under"
-                >[ PMID: 19902913 ]</a
-              >
-            </td>
-          </tr>
-        </table>
+              <tr>
+                <td class="grayTD" align="left"><img src="/images/p_st1.GIF" width="4" height="9"><font class="drakBR"> Publication</font><br/></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;&nbsp;<font class="drakBR">New algorithm for the identification of intact disulfide linkages based on fragmentation characteristics in tandem mass spectra.</font><br>&nbsp;&nbsp;&nbsp;<em>Seonhwa Choi, Jaeho Jeong, Seungjin Na, Hyo Sun Lee, Hwa-Young Kim, Kong-Joo Lee, and Eunok Paek.</em>
+                  <br>&nbsp;&nbsp;&nbsp; Journal of Proteome Research, 2010, 9, 626-635. <a href="https://pubmed.ncbi.nlm.nih.gov/19902913/" target="_blank" class="under">[ PMID: 19902913 ]</a></td>
+              </tr>	
+            
+          </table>	
       </td>
     </tr>
   </table>

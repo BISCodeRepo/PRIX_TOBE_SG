@@ -24,7 +24,7 @@
       
           <table border="0" cellspacing="0" cellpadding="0" id="TitTable">
             <tr>
-              <td align="left"><font class="drakBR" size="3">deMix</font> - Decoding deuterated Distributions from heterogeneous protein states via HDX-MS (<a href="https://github.com/HanyangBISLab/deMix" style="color:#990000">Software downlaod</a>) </td>
+              <td align="left"><font class="drakBR" size="3">CyGate</font> - Automatic gating of single cell cytometry data (<a href="https://github.com/HanyangBISLab/cygate" style="color:#990000">Software downlaod</a>) </td>
               <td align="right" valign="bottom" style="padding-right:5px;"><table border="0" cellspacing="0" cellpadding="0">
 
                 <tr th:if="${session.id != null and session.id ne '4'}">
@@ -37,7 +37,7 @@
       </table>
       <table width="650" border="0" align="left" cellpadding="1">
               <tr>
-                <td width="600" align="left">deMix deals directly with the deuterated isotopic distributions, but not considering their centroid masses and is designed to be robust over random noises. In addition, unlike the existing approaches that can only determine a single state from an isotopic distribution, deMix can also detect a bimodal deuterated distribution, arising from EX1 behavior or heterogeneous peptides in conformational isomer proteins. Furthermore, deMix comes with visualization software to facilitate validation and representation of the analysis results.</td>
+                <td width="600" align="left">CyGate is a semiautomated method for classifying single cells into their respective cell types. CyGate learns a gating strategy from a reference data set, trains a model for cell classification, and then automatically analyzes additional data sets using the trained model. CyGate also supports the machine learning framework for the classification of "ungated" cells, which are typically disregarded by automated methods. CyGate's utility was demonstrated by its high performance in cell type classification and the lowest generalization error on various public data sets when compared to the state-of-the-art semiautomated methods. Notably, CyGate had the shortest execution time, allowing it to scale with a growing number of samples.</td>
               </tr>
               <tr>
                 <td align="left">&nbsp;</td>
@@ -47,11 +47,9 @@
                 <td class="grayTD" align="left"><img src="/images/p_st1.GIF" width="4" height="9"><font class="drakBR"> Publication</font><br/></td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp;<font class="drakBR">deMix: Decoding Deuterated Distributions from Heterogeneous Protein States via HDX-MS.</font><br>&nbsp;&nbsp;&nbsp;<em>Seungjin Na, Jae-Jin Lee, Jong Wha J. Joo, Kong-Joo Lee and Eunok Paek.</em>
-                  <br>&nbsp;&nbsp;&nbsp; Scientific Reports, 2019, 9(1):3176. <a href="https://pubmed.ncbi.nlm.nih.gov/30816214/" target="_blank" class="under">[ PMID: 30816214 ]</a></td>
+                <td>&nbsp;&nbsp;&nbsp;<font class="drakBR"> CyGate Provides a Robust Solution for Automatic Gating of Single Cell Cytometry Data.</font><br>&nbsp;&nbsp;&nbsp;<em>Seungjin Na, Yujin Choo, Tae Hyun Yoon, and Eunok Paek.</em><br>&nbsp;&nbsp;&nbsp; Analytical Chemistry, 2023, 95(46), 16918-16926. <a href="https://pubmed.ncbi.nlm.nih.gov/37946317/" target="_blank" class="under">[ PMID: 37946317 ]</a></td>
               </tr>	
               
-  
           </table>	
       </td>
     </tr>

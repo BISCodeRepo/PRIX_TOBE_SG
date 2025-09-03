@@ -26,10 +26,6 @@ public class DownloadController {
    * 
    * @return download/modplus.html 렌더링
    */
-  @GetMapping("/modplus")
-  public String modplusPage() {
-    return "download/modplus";
-  }
 
   @GetMapping("/ACTG")
   public String actgPage() {
@@ -41,9 +37,24 @@ public class DownloadController {
     return "download/cifter";
   }
 
+  @GetMapping("/Cygate")
+  public String CygatePage() {
+    return "download/Cygate";
+  }
+
   @GetMapping("/dbond")
   public String dbondPage() {
     return "download/dbond";
+  }
+
+  @GetMapping("/dbydeep")
+  public String dbydeepPage() {
+    return "download/dbydeep";
+  }
+
+  @GetMapping("/deephos")
+  public String deephosPage() {
+    return "download/deephos";
   }
 
   @GetMapping("/demix")
@@ -66,9 +77,29 @@ public class DownloadController {
     return "download/moda";
   }
 
+  @GetMapping("/modplus")
+  public String modplusPage() {
+    return "download/modplus";
+  }
+
   @GetMapping("/mutcombinator")
   public String mutcombinatorPage() {
     return "download/mutcombinator";
+  }
+
+  @GetMapping("/pXg")
+  public String pXgPage() {
+    return "download/pXg";
+  }
+
+  @GetMapping("/rapid")
+  public String rapidPage() {
+    return "download/rapid";
+  }
+
+  @GetMapping("/tidd")
+  public String tiddPage() {
+    return "download/tidd";
   }
 
 }

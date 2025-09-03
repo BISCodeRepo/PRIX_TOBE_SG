@@ -11,7 +11,8 @@ public class PrixConnector {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 		//	Connection conn = DriverManager.getConnection("jdbc:mysql://172.16.63.108/prix?user=root&password=islab");
 			// Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/prix?user=root&password=prix3306"); 이게 원래 진짜 코드 2024.05.27
-			Connection conn = DriverManager.getConnection("jdbc:mysql://166.104.110.37/prix?user=prix&password=Prix2024!@");
+			
+			Connection conn = DriverManager.getConnection("jdbc:mysql://166.104.112.54:3306/prix?user=root&password=isa4986");
 			return conn;
 		} catch (Exception e) {
 			return null;

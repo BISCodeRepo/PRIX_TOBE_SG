@@ -1,160 +1,58 @@
 <!DOCTYPE html>
 <!-- layout의 content로 table 을, links에는 link들을, scripts에는 script들을 넘긴다. 필요 없을 경우 ~{} empty fragment-->
-<html
-  th:replace="~{inc/layout::layout(~{::table}, ~{::link}, ~{::script})}"
-  xmlns:th="http://www.thymeleaf.org"
->
+<html th:replace="~{inc/layout::layout(~{::table}, ~{::link}, ~{::script})}" xmlns:th="http://www.thymeleaf.org">
+
   <!-- 페이지 개별 css를 어떻게 추가하는지 예시 -->
-  <link
-    href="/css/example.css"
-    th:href="@{/css/example.css}"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <link
-    href="/css/example2.css"
-    th:href="@{/css/example2.css}"
-    rel="stylesheet"
-    type="text/css"
-  />
+  <link href="/css/example.css" th:href="@{/css/example.css}" rel="stylesheet" type="text/css" />
+  <link href="/css/example2.css" th:href="@{/css/example2.css}" rel="stylesheet" type="text/css" />
 
   <!-- 페이지 개별 javascript 등 기타 script를 추가하는 예시 -->
   <script>
-    let a = 12;
+    let a = 12;  
   </script>
   <script>
     let b = "hi";
-  </script>
+  </script> 
 
   <table width="1090" border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td
-        width="190"
-        height="100%"
-        rowspan="2"
-        align="right"
-        valign="top"
-        style="padding-right: 15px"
-      >
-        <!-- left menu -->
-        <div th:insert="~{download/download_menu :: download_menu}" />
-      </td>
+      <td width="190" height="100%" rowspan="2" align="right" valign="top" style="padding-right:15px">
+          <!-- left menu -->
+          <div th:insert="~{download/download_menu :: download_menu}" />
+        </td>
       <td height="10" valign="top">
-        <table border="0" cellspacing="0" cellpadding="0" id="TitTable">
-          <tr>
-            <td align="left">
-              <font class="drakBR" size="3">MutCombinator</font> - Combinatorial
-              mutation search
-            </td>
-            <td align="right" valign="bottom" style="padding-right: 5px">
-              <table border="0" cellspacing="0" cellpadding="0">
+      
+          <table border="0" cellspacing="0" cellpadding="0" id="TitTable">
+            <tr>
+              <td align="left"><font class="drakBR" size="3">MutCombinator</font> - Combinatorial mutation search (<a href="https://github.com/HanyangBISLab/MutCombinator" style="color:#990000">Software downlaod</a>) </td>
+              <td align="right" valign="bottom" style="padding-right:5px;"><table border="0" cellspacing="0" cellpadding="0">
+
                 <tr th:if="${session.id != null and session.id ne '4'}">
-                  <td>
-                    <img src="/images/top_icon_01.gif" width="2" height="9" />
-                    &nbsp;<a href="/history" class="menu">History</a>
-                    &nbsp; &nbsp;
-                  </td>
-                  <td>
-                    <img src="/images/top_icon_01.gif" width="2" height="9" />
-                    &nbsp;<a href="/login?action=logout" class="menu">Logout</a>
-                    &nbsp; &nbsp;
-                  </td>
+                    <td><img src="/images/top_icon_01.gif" width="2" height="9"> &nbsp;<a href="/history" class="menu">History</a> &nbsp; &nbsp;</td>
+                    <td><img src="/images/top_icon_01.gif" width="2" height="9"> &nbsp;<a href="/login?action=logout" class="menu">Logout</a> &nbsp; &nbsp;</td>
                 </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        <table width="650" border="0" align="left" cellpadding="1">
-          <tr>
-            <td width="600" align="left">
-              MutCombinator enables us to practically identify mutated peptides
-              from tandem mass spectra allowing combinatorial mutations during
-              the database search. It uses an upgraded version of a variant
-              graph, keeping track of frame information. The variant graph is
-              indexed by nine nucleotides for fast access. Combinations of point
-              mutations are considered, and also it can be practically applied
-              together with a large mutation database such as COSMIC.
-              Furthermore, MutCombinator supports in-frame search for coding
-              regions and three-frame search for noncoding regions.
-            </td>
-          </tr>
-          <tr>
-            <td align="left">&nbsp;</td>
-          </tr>
 
-          <tr>
-            <td class="grayTD" align="left">
-              <img src="/images/p_st1.GIF" width="4" height="9" /><font
-                class="drakBR"
-              >
-                Software</font
-              ><br />
-            </td>
-          </tr>
-          <tr>
-            <td align="left">
-              <ul>
-                <li>Requirement</li>
-                <br /><font class="blue">
-                  MutCombinator was implemented using JAVA programming language,
-                  and requires Java Running Environment (JRE).<br />
-                  If JRE is not installed, please visit
-                  <a
-                    href="http://www.oracle.com/technetwork/java/index.html"
-                    target="_blank"
-                    class="under"
-                    >http://www.oracle.com/technetwork/java/index.html</a
-                  ><br /><br
-                /></font>
+          </table></td>
+        </tr>
+      </table>
+      <table width="650" border="0" align="left" cellpadding="1">
+              <tr>
+                <td width="600" align="left">MutCombinator enables us to practically identify mutated peptides from tandem mass spectra allowing combinatorial mutations during the database search. It uses an upgraded version of a variant graph, keeping track of frame information. The variant graph is indexed by nine nucleotides for fast access. Combinations of point mutations are considered, and also it can be practically applied together with a large mutation database such as COSMIC. Furthermore, MutCombinator supports in-frame search for coding regions and three-frame search for noncoding regions.</td>
+              </tr>
+              <tr>
+                <td align="left">&nbsp;</td>
+              </tr>
 
-                <li>Release Note</li>
-                <br />
-                -
-                <font class="blue"
-                  ><a
-                    th:href="@{/files/MutCombinator_ReleaseNote.txt}"
-                    class="under"
-                  />Mar 26, 2020: version 1.11</font
-                >
-                (
-                <a href="/software_request?software=MutCombinator" class="under"
-                  >Software download</a
-                >
-                )<br />
-                -
-                <font class="blue">Jan 22, 2020: version 1.10</font
-                ><br /><br />
-              </ul>
-            </td>
-          </tr>
+              <tr>
+                <td class="grayTD" align="left"><img src="/images/p_st1.GIF" width="4" height="9"><font class="drakBR"> Publication</font><br/></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;&nbsp;<font class="drakBR">MutCombinator: identification of mutated peptides allowing combinatorial mutations using nucleotide-based graph search.</font><br>&nbsp;&nbsp;&nbsp;<em>Seunghyuk Choi and Eunok Paek.</em>
+                  <br>&nbsp;&nbsp;&nbsp;Bioinformatics, 2020, 7, i203-i209. <a href="https://pubmed.ncbi.nlm.nih.gov/32657416/" target="_blank" class="under">[ PMID: 32657416 ]</a></td>
+              </tr>	
 
-          <tr>
-            <td class="grayTD" align="left">
-              <img src="/images/p_st1.GIF" width="4" height="9" /><font
-                class="drakBR"
-              >
-                Publication</font
-              ><br />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              &nbsp;&nbsp;&nbsp;<font class="drakBR"
-                >MutCombinator: identification of mutated peptides allowing
-                combinatorial mutations using nucleotide-based
-                <br />&nbsp;&nbsp;&nbsp;graph search.</font
-              ><br />&nbsp;&nbsp;&nbsp;<em>Seunghyuk Choi and Eunok Paek.</em
-              ><br />&nbsp;&nbsp;&nbsp;Bioinformatics, 2020, 7, i203-i209.
-              <a
-                href="https://pubmed.ncbi.nlm.nih.gov/32657416/"
-                target="_blank"
-                class="under"
-                >[ PMID: 32657416 ]</a
-              >
-            </td>
-          </tr>
-          <tr></tr>
-        </table>
+  
+          </table>	
       </td>
     </tr>
   </table>
